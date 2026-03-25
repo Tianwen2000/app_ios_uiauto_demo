@@ -1,0 +1,1 @@
+{"debug_description_relpath":"logs\/testSearchAndCategoryFilters_FAIL_debug_description.txt","duration_ms":25575,"ended_at_ms":1773886226983,"failure_artifacts":["screens\/testSearchAndCategoryFilters\/FAIL_final_state.png"],"run_id":"swift_ui_20260319_100917_7d55e1eb","started_at_ms":1773886201408,"status":"failed","test_name":"testSearchAndCategoryFilters"}

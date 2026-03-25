@@ -1,0 +1,11 @@
+{
+  "test_name": "testSearchAndCategoryFilters",
+  "run_id": "flutter_it_20260320_154709_56d4ba31",
+  "status": "passed",
+  "started_at_ms": 1773992912659,
+  "ended_at_ms": 1773992945343,
+  "duration_ms": 32684,
+  "failure_step_id": null,
+  "debug_description_relpath": null,
+  "error": null
+}

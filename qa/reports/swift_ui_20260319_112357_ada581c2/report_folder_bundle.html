@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI 自动化测试报告 文件夹版 HTML 版本 swift_ui_20260319_112357_ada581c2</title>
+  <style>
+    :root {
+      --bg: #f4f7f2;
+      --card: rgba(255, 255, 255, 0.94);
+      --line: #d9e3d1;
+      --text: #1e2a1f;
+      --muted: #5d6b5e;
+      --accent: #1f7a59;
+      --accent-soft: #dff4ea;
+      --danger: #b33a3a;
+      --danger-soft: #fde8e8;
+      --shadow: 0 20px 50px rgba(36, 59, 41, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(98, 187, 138, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(255, 197, 102, 0.18), transparent 26%),
+        linear-gradient(180deg, #eef7f0 0%, var(--bg) 36%, #edf1ec 100%);
+      min-height: 100vh;
+    }
+
+    .page {
+      width: min(1360px, calc(100vw - 32px));
+      margin: 24px auto 48px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(28, 93, 66, 0.96), rgba(49, 119, 82, 0.88));
+      color: #f6fff8;
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -60px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      filter: blur(2px);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.82;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.05;
+      font-weight: 800;
+    }
+
+    .hero p {
+      margin: 12px 0 0;
+      max-width: 860px;
+      color: rgba(246, 255, 248, 0.88);
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .hero-pill {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-pill span {
+      display: block;
+      font-size: 12px;
+      opacity: 0.8;
+      margin-bottom: 6px;
+    }
+
+    .hero-pill strong {
+      font-size: 14px;
+      word-break: break-all;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px 0 18px;
+    }
+
+    .toolbar-note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: #ffffff;
+      color: var(--text);
+      box-shadow: 0 6px 18px rgba(36, 59, 41, 0.08);
+      cursor: pointer;
+      transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+    }
+
+    .filter-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .summary-card,
+    .case-card,
+    .panel {
+      background: var(--card);
+      border: 1px solid rgba(217, 227, 209, 0.85);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .summary-card {
+      padding: 18px;
+    }
+
+    .summary-card span {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .summary-card strong {
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .case-card {
+      padding: 22px;
+    }
+
+    .case-card.is-hidden {
+      display: none;
+    }
+
+    .case-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .case-top h2,
+    .panel h2 {
+      margin: 4px 0 0;
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .case-subtitle {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 70px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .status-chip.large {
+      min-width: 92px;
+      padding: 10px 16px;
+      font-size: 15px;
+    }
+
+    .status-chip.passed {
+      color: #176848;
+      background: var(--accent-soft);
+    }
+
+    .status-chip.failed {
+      color: #962a2a;
+      background: var(--danger-soft);
+    }
+
+    .status-chip.unknown {
+      color: #5e5535;
+      background: #f8efd4;
+    }
+
+    .case-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 18px 0 10px;
+    }
+
+    .meta-card {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #f7faf6;
+      border: 1px solid var(--line);
+    }
+
+    .meta-card span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .meta-card strong {
+      font-size: 16px;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .section-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 22px;
+      margin-bottom: 12px;
+    }
+
+    .section-title-row h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .step-card {
+      padding: 16px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 247, 0.96));
+      border: 1px solid var(--line);
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .step-id {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    .step-card h4 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .meta-grid div {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: #f6faf5;
+      border: 1px solid #e2eadc;
+    }
+
+    .meta-grid span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .meta-grid strong {
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    .shot-wrapper {
+      margin-top: 12px;
+    }
+
+    .shot-button {
+      width: 100%;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .shot-button img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(36, 59, 41, 0.10);
+    }
+
+    .shot-button span {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .shot-empty,
+    .empty-state {
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px dashed var(--line);
+      background: #f7faf6;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .error-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: var(--danger-soft);
+      color: #7e2727;
+      border: 1px solid rgba(179, 58, 58, 0.14);
+    }
+
+    .error-box strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .error-box p {
+      margin: 0;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fbfdfb;
+    }
+
+    .detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    .detail-table th,
+    .detail-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #e7eee2;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .detail-table th {
+      background: #eef7f0;
+      font-size: 13px;
+      color: #25452e;
+    }
+
+    .detail-table td {
+      font-size: 14px;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+
+    .panel {
+      padding: 22px;
+      margin-top: 18px;
+    }
+
+    .panel p,
+    .panel li {
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .text-link {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .text-link:hover {
+      text-decoration: underline;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(13, 18, 14, 0.72);
+      z-index: 999;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-dialog {
+      width: min(1200px, 96vw);
+      max-height: 92vh;
+      overflow: auto;
+      background: rgba(17, 28, 19, 0.96);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+    }
+
+    .lightbox-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: #f7fff8;
+      margin-bottom: 16px;
+    }
+
+    .lightbox-head p {
+      margin: 0;
+      color: rgba(247, 255, 248, 0.78);
+    }
+
+    .lightbox-close {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+    }
+
+    .lightbox img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+      background: #0f1610;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100vw - 18px, 100%);
+        margin: 12px auto 32px;
+      }
+
+      .hero,
+      .case-card,
+      .panel {
+        padding: 18px;
+        border-radius: 20px;
+      }
+
+      .case-top {
+        flex-direction: column;
+      }
+
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar {
+        align-items: flex-start;
+      }
+
+      .shot-button img {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="eyebrow">XCUITest / Flutter iOS</p>
+      <h1>UI 自动化测试报告</h1>
+      <p>当前版本：文件夹版 HTML 版本。本页基于本地测试侧采集到的步骤日志、动作日志、截图和结果文件生成，支持离线打开、筛选通过/失败用例，以及点击查看大图。</p>
+      <div class="hero-meta">
+        <div class="hero-pill"><span>运行ID</span><strong>swift_ui_20260319_112357_ada581c2</strong></div>
+        <div class="hero-pill"><span>生成时间</span><strong>2026-03-19 11:29:51 CST</strong></div>
+        <div class="hero-pill"><span>产物目录</span><strong>/Users/a123/PycharmProjects/Virtualenv_project/yueling_project/tests/ui_auto/qa/artifacts/swift_ui_20260319_112357_ada581c2</strong></div>
+        <div class="hero-pill"><span>交付说明</span><strong>需要连同整个产物文件夹一起发送，页面通过相对路径读取截图。</strong></div>
+      </div>
+    </header>
+
+    <section class="toolbar">
+      <div class="filters">
+        <button class="filter-btn active" type="button" data-filter="all">全部用例</button>
+        <button class="filter-btn" type="button" data-filter="passed">仅看通过</button>
+        <button class="filter-btn" type="button" data-filter="failed">仅看失败</button>
+      </div>
+      <div class="toolbar-note">当前共 2 条用例。需要连同整个产物文件夹一起发送，页面通过相对路径读取截图。</div>
+    </section>
+
+    <section class="summary-grid">
+      <div class="summary-card"><span>用例总数</span><strong>2</strong></div>
+      <div class="summary-card"><span>通过用例</span><strong>2</strong></div>
+      <div class="summary-card"><span>失败用例</span><strong>0</strong></div>
+      <div class="summary-card"><span>截图数量</span><strong>11</strong></div>
+      <div class="summary-card"><span>JSONL 日志数量</span><strong>4</strong></div>
+      <div class="summary-card"><span>失败步骤数</span><strong>0</strong></div>
+      <div class="summary-card"><span>失败动作数</span><strong>0</strong></div>
+    </section>
+
+    <section class="case-list">
+      <section class='case-card' data-status='passed'><div class='case-top'><div><p class='eyebrow'>测试用例</p><h2>搜索与分类筛选</h2><p class='case-subtitle'>开始于 2026-03-19 11:24:54，结束于 2026-03-19 11:25:21</p></div><div class='status-chip large passed'>通过</div></div><div class='case-meta'><div class='meta-card'><span>总耗时</span><strong>27146 ms</strong></div><div class='meta-card'><span>失败步骤</span><strong>暂无</strong></div><div class='meta-card'><span>调试描述</span><strong><span class='muted'>暂无</span></strong></div><div class='meta-card'><span>步骤数量</span><strong>4</strong></div></div><div class='section-title-row'><h3>步骤截图与执行过程</h3><span class='muted'>需要连同整个产物文件夹一起发送，页面通过相对路径读取截图。</span></div><div class='step-grid'><article class='step-card'><div class='step-header'><div class='step-id'>S001</div><div class='status-chip passed'>通过</div></div><h4>登录进入演示应用</h4><div class='meta-grid'><div><span>耗时</span><strong>11999 ms</strong></div><div><span>结束时间</span><strong>2026-03-19 11:25:06</strong></div></div><div class='shot-wrapper'><button class='shot-button' type='button' data-src='screens/testSearchAndCategoryFilters/S001_success.png' data-caption='S001 登录进入演示应用'><img src='screens/testSearchAndCategoryFilters/S001_success.png' alt='登录进入演示应用' loading='lazy'><span>点击查看大图</span></button></div></article><article class='step-card'><div class='step-header'><div class='step-id'>S002</div><div class='status-chip passed'>通过</div></div><h4>搜索命中的商品</h4><div class='meta-grid'><div><span>耗时</span><strong>3613 ms</strong></div><div><span>结束时间</span><strong>2026-03-19 11:25:10</strong></div></div><div class='shot-wrapper'><button class='shot-button' type='button' data-src='screens/testSearchAndCategoryFilters/S002_success.png' data-caption='S002 搜索命中的商品'><img src='screens/testSearchAndCategoryFilters/S002_success.png' alt='搜索命中的商品' loading='lazy'><span>点击查看大图</span></button></div></article><article class='step-card'><div class='step-header'><div class='step-id'>S003</div><div class='status-chip passed'>通过</div></div><h4>清空搜索并按分类筛选</h4><div class='meta-grid'><div><span>耗时</span><strong>6274 ms</strong></div><div><span>结束时间</span><strong>2026-03-19 11:25:16</strong></div></div><div class='shot-wrapper'><button class='shot-button' type='button' data-src='screens/testSearchAndCategoryFilters/S003_success.png' data-caption='S003 清空搜索并按分类筛选'><img src='screens/testSearchAndCategoryFilters/S003_success.png' alt='清空搜索并按分类筛选' loading='lazy'><span>点击查看大图</span></button></div></article><article class='step-card'><div class='step-header'><div class='step-id'>S004</div><div class='status-chip passed'>通过</div></div><h4>触发空状态页面</h4><div class='meta-grid'><div><span>耗时</span><strong>5255 ms</strong></div><div><span>结束时间</span><strong>2026-03-19 11:25:21</strong></div></div><div class='shot-wrapper'><button class='shot-button' type='button' data-src='screens/testSearchAndCategoryFilters/S004_success.png' data-caption='S004 触发空状态页面'><img src='screens/testSearchAndCategoryFilters/S004_success.png' alt='触发空状态页面' loading='lazy'><span>点击查看大图</span></button></div></article></div><div class='section-title-row'><h3>失败动作</h3></div><div class='empty-state'>本用例没有失败动作</div></section><section class='case-card' data-status='passed'><div class='case-top'><div><p class='eyebrow'>测试用例</p><h2>登录、浏览、个人页校验并退出</h2><p class='case-subtitle'>开始于 2026-03-19 11:25:25，结束于 2026-03-19 11:26:00</p></div><div class='status-chip large passed'>通过</div></div><div class='case-meta'><div class='meta-card'><span>总耗时</span><strong>34585 ms</strong></div><div class='meta-card'><span>失败步骤</span><strong>暂无</strong></div><div class='meta-card'><span>调试描述</span><strong><span class='muted'>暂无</span></strong></div><div class='meta-card'><span>步骤数量</span><strong>7</strong></div></div><div class='section-title-row'><h3>步骤截图与执行过程</h3><span class='muted'>需要连同整个产物文件夹一起发送，页面通过相对路径读取截图。</span></div><div class='step-grid'><article class='step-card'><div class='step-header'><div class='step-id'>S001</div><div class='status-chip passed'>通过</div></div><h4>等待登录页出现</h4><div class='meta-grid'><div><span>耗时</span><strong>3396 ms</strong></div><div><span>结束时间</span><strong>2026-03-19 11:25:28</strong></div></div><div class='shot-wrapper'><button class='shot-button' type='button' data-src='screens/testSmoke_LoginBrowseProfileLogout/S001_success.png' data-caption='S001 等待登录页出现'><img src='screens/testSmoke_LoginBrowseProfileLogout/S001_success.png' alt='等待登录页出现' loading='lazy'><span>点击查看大图</span></button></div></article><article class='step-card'><div class='step-header'><div class='step-id'>S002</div><div class='status-chip passed'>通过</div></div><h4>提交有效账号密码</h4><div class='meta-grid'><div><span>耗时</span><strong>9520 ms</strong></div><div><span>结束时间</span><strong>2026-03-19 11:25:38</strong></div></div><div class='shot-wrapper'><button class='shot-button' type='button' data-src='screens/testSmoke_LoginBrowseProfileLogout/S002_success.png' data-caption='S002 提交有效账号密码'><img src='screens/testSmoke_LoginBrowseProfileLogout/S002_success.png' alt='提交有效账号密码' loading='lazy'><span>点击查看大图</span></button></div></article><article class='step-card'><div class='step-header'><div class='step-id'>S003</div><div class='status-chip passed'>通过</div></div><h4>校验发现页并执行搜索</h4><div class='meta-grid'><div><span>耗时</span><strong>5665 ms</strong></div><div><span>结束时间</span><strong>2026-03-19 11:25:44</strong></div></div><div class='shot-wrapper'><button class='shot-button' type='button' data-src='screens/testSmoke_LoginBrowseProfileLogout/S003_success.png' data-caption='S003 校验发现页并执行搜索'><img src='screens/testSmoke_LoginBrowseProfileLogout/S003_success.png' alt='校验发现页并执行搜索' loading='lazy'><span>点击查看大图</span></button></div></article><article class='step-card'><div class='step-header'><div class='step-id'>S004</div><div class='status-chip passed'>通过</div></div><h4>将商品加入购物袋</h4><div class='meta-grid'><div><span>耗时</span><strong>2705 ms</strong></div><div><span>结束时间</span><strong>2026-03-19 11:25:46</strong></div></div><div class='shot-wrapper'><button class='shot-button' type='button' data-src='screens/testSmoke_LoginBrowseProfileLogout/S004_success.png' data-caption='S004 将商品加入购物袋'><img src='screens/testSmoke_LoginBrowseProfileLogout/S004_success.png' alt='将商品加入购物袋' loading='lazy'><span>点击查看大图</span></button></div></article><article class='step-card'><div class='step-header'><div class='step-id'>S005</div><div class='status-chip passed'>通过</div></div><h4>进入个人页并校验状态</h4><div class='meta-grid'><div><span>耗时</span><strong>3660 ms</strong></div><div><span>结束时间</span><strong>2026-03-19 11:25:50</strong></div></div><div class='shot-wrapper'><button class='shot-button' type='button' data-src='screens/testSmoke_LoginBrowseProfileLogout/S005_success.png' data-caption='S005 进入个人页并校验状态'><img src='screens/testSmoke_LoginBrowseProfileLogout/S005_success.png' alt='进入个人页并校验状态' loading='lazy'><span>点击查看大图</span></button></div></article><article class='step-card'><div class='step-header'><div class='step-id'>S006</div><div class='status-chip passed'>通过</div></div><h4>切换个人页开关项</h4><div class='meta-grid'><div><span>耗时</span><strong>4993 ms</strong></div><div><span>结束时间</span><strong>2026-03-19 11:25:55</strong></div></div><div class='shot-wrapper'><button class='shot-button' type='button' data-src='screens/testSmoke_LoginBrowseProfileLogout/S006_success.png' data-caption='S006 切换个人页开关项'><img src='screens/testSmoke_LoginBrowseProfileLogout/S006_success.png' alt='切换个人页开关项' loading='lazy'><span>点击查看大图</span></button></div></article><article class='step-card'><div class='step-header'><div class='step-id'>S007</div><div class='status-chip passed'>通过</div></div><h4>退出并返回登录页</h4><div class='meta-grid'><div><span>耗时</span><strong>4643 ms</strong></div><div><span>结束时间</span><strong>2026-03-19 11:26:00</strong></div></div><div class='shot-wrapper'><button class='shot-button' type='button' data-src='screens/testSmoke_LoginBrowseProfileLogout/S007_success.png' data-caption='S007 退出并返回登录页'><img src='screens/testSmoke_LoginBrowseProfileLogout/S007_success.png' alt='退出并返回登录页' loading='lazy'><span>点击查看大图</span></button></div></article></div><div class='section-title-row'><h3>失败动作</h3></div><div class='empty-state'>本用例没有失败动作</div></section>
+    </section>
+
+    <section class="panel">
+      <h2>接口采集说明</h2>
+      <p>当前未发现应用侧网络日志文件。在“不能改业务源码”的约束下，请求与响应明细仍需要依赖外部代理抓包，或等待后续接入客户端网络层日志钩子。</p>
+    </section>
+
+    <section class="panel">
+      <h2>备注</h2>
+      <ul>
+        <li>本报告优先使用测试侧本地证据文件，避免只依赖 <code>.xcresult</code> 附件。</li>
+        <li>如果后续允许接入客户端网络层日志或外部代理抓包，这一页可以继续扩展接口请求、响应和异常区块。</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-dialog">
+      <div class="lightbox-head">
+        <div>
+          <strong>步骤截图预览</strong>
+          <p id="lightbox-caption">-</p>
+        </div>
+        <button class="lightbox-close" id="lightbox-close" type="button">关闭</button>
+      </div>
+      <img id="lightbox-image" alt="步骤截图大图">
+    </div>
+  </div>
+
+  <script>
+    const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+    const caseCards = Array.from(document.querySelectorAll('.case-card'));
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+        caseCards.forEach((card) => {
+          const status = card.dataset.status;
+          const hidden = filter !== 'all' && status !== filter;
+          card.classList.toggle('is-hidden', hidden);
+        });
+      });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeLightbox = () => {
+      lightbox.classList.remove('open');
+      lightboxImage.removeAttribute('src');
+      lightboxCaption.textContent = '-';
+    };
+
+    document.querySelectorAll('.shot-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        lightboxImage.src = button.dataset.src || '';
+        lightboxCaption.textContent = button.dataset.caption || '步骤截图';
+        lightbox.classList.add('open');
+      });
+    });
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>

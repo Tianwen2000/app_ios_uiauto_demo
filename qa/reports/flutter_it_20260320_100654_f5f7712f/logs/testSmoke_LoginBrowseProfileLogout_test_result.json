@@ -1,0 +1,11 @@
+{
+  "test_name": "testSmoke_LoginBrowseProfileLogout",
+  "run_id": "flutter_it_20260320_100654_f5f7712f",
+  "status": "failed",
+  "started_at_ms": 1773972436372,
+  "ended_at_ms": 1773972466273,
+  "duration_ms": 29901,
+  "failure_step_id": "S004",
+  "debug_description_relpath": "logs/testSmoke_LoginBrowseProfileLogout_S004_debug_description.txt",
+  "error": "DriverError: Error in Flutter application: Timeout while executing waitFor: TimeoutException after 0:00:08.000000: Future not completed\n#0      Future.timeout.<anonymous closure> (dart:async/future_impl.dart:1042:24)\n<asynchronous suspension>\n#1      FlutterDriverExtension.call (package:flutter_driver/src/extension/extension.dart:423:31)\n<asynchronous suspension>\n#2      BindingBase.registerServiceExtension.<anonymous closure> (package:flutter/src/foundation/binding.dart:960:18)\n<asynchronous suspension>\n#3      _runExtension.<anonymous closure> (dart:developer-patch/developer.dart:140:13)\n<asynchronous suspension>\n\n"
+}

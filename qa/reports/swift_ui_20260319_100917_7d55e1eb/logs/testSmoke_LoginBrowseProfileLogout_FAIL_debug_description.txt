@@ -1,0 +1,39 @@
+Attributes: Application, 0x1045616c0, pid: 2762, label: 'Flutter Client Demo'
+Element subtree:
+ →Application, 0x1045616c0, pid: 2762, label: 'Flutter Client Demo'
+    Window (Main), 0x10456b7a0, {{0.0, 0.0}, {393.0, 852.0}}
+      Other, 0x10456ab40, {{0.0, 0.0}, {393.0, 852.0}}
+        Other, 0x104561160, {{0.0, 0.0}, {393.0, 852.0}}
+          Other, 0x10456af60, {{0.0, 0.0}, {393.0, 852.0}}
+            Other, 0x10456b380, {{0.0, 0.0}, {393.0, 852.0}}
+              Other, 0x10456bde0, {{0.0, 0.0}, {393.0, 852.0}}
+              Other, 0x10456bf00, {{0.0, 0.0}, {393.0, 852.0}}
+                Other, 0x10456c020, {{0.0, 0.0}, {393.0, 852.0}}
+                Other, 0x10456c140, {{0.0, 0.0}, {393.0, 852.0}}
+                  Other, 0x10456c260, {{0.0, 0.0}, {393.0, 852.0}}
+                  Other, 0x10456c380, {{0.0, 0.0}, {393.0, 852.0}}
+                    Other, 0x10456c4a0, {{0.0, 0.0}, {393.0, 852.0}}
+                    Other, 0x10456c5c0, {{0.0, 0.0}, {393.0, 852.0}}
+                      ScrollView, 0x10456c6e0, {{0.0, 59.0}, {393.0, 759.0}}
+                      Other, 0x10456c800, {{0.0, 0.0}, {393.0, 852.0}}
+                        Button, 0x10456c920, {{24.0, 190.5}, {345.0, 496.0}}, identifier: 'qa.login.badge', label: 'iOS client demo
+Sign in to your curated storefront
+A lightweight demo for testing login, navigation, carts, favorites, and profile settings on iOS.'
+                        Other, 0x10456ca40, {{0.0, 0.0}, {393.0, 852.0}}
+                          TextField, 0x1045660c0, {{52.0, 454.5}, {289.0, 56.0}}, identifier: 'qa.login.username'
+                          TextField, 0x1045661e0, {{52.0, 454.5}, {289.0, 56.0}}, label: 'Username'
+                        Other, 0x104566300, {{0.0, 0.0}, {393.0, 852.0}}
+                          TextField, 0x104566420, {{52.0, 526.5}, {289.0, 56.0}}, identifier: 'qa.login.password'
+                          TextField, 0x104566540, {{52.0, 526.5}, {289.0, 56.0}}, label: 'Password'
+                        Button, 0x104566660, {{52.0, 606.5}, {289.0, 52.0}}, label: 'Enter Demo Workspace'
+    Window, 0x104566780, {{0.0, 0.0}, {393.0, 852.0}}
+      Other, 0x10456cde0, {{0.0, 0.0}, {393.0, 852.0}}
+        Other, 0x10456cf00, {{0.0, 0.0}, {393.0, 852.0}}
+        Other, 0x10456d020, {{0.0, 852.0}, {393.0, 233.0}}
+Path to element:
+ →Application, 0x1045616c0, pid: 2762, label: 'Flutter Client Demo'
+Query chain:
+ →Find: Target Application 'com.example.flutterClientDemo'
+  Output: {
+    Application, 0x10455a610, pid: 2762, label: 'Flutter Client Demo'
+  }

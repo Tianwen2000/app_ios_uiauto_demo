@@ -1,0 +1,35 @@
+Attributes: Application, 0x105a27fd0, pid: 64063, label: 'Flutter Client Demo'
+Element subtree:
+ →Application, 0x105a27fd0, pid: 64063, label: 'Flutter Client Demo'
+    Window (Main), 0x105a27c60, {{0.0, 0.0}, {393.0, 852.0}}
+      Other, 0x105a28a00, {{0.0, 0.0}, {393.0, 852.0}}
+        Other, 0x105a28d80, {{0.0, 0.0}, {393.0, 852.0}}
+          Other, 0x105a28690, {{0.0, 0.0}, {393.0, 852.0}}
+            Other, 0x105a28330, {{0.0, 0.0}, {393.0, 852.0}}
+              Other, 0x105a29110, {{0.0, 0.0}, {393.0, 852.0}}
+              Other, 0x105a29480, {{0.0, 0.0}, {393.0, 852.0}}
+                Other, 0x105a297f0, {{0.0, 0.0}, {393.0, 852.0}}
+                Other, 0x105a29b70, {{0.0, 0.0}, {393.0, 852.0}}
+                  Other, 0x105a29f10, {{0.0, 0.0}, {393.0, 852.0}}
+                  Other, 0x105a2a260, {{0.0, 0.0}, {393.0, 852.0}}
+                    Other, 0x105a2a5c0, {{0.0, 0.0}, {393.0, 852.0}}
+                    Other, 0x105a2a940, {{0.0, 0.0}, {393.0, 852.0}}
+                      ScrollView, 0x105a2acb0, {{0.0, 59.0}, {393.0, 759.0}}
+                      Other, 0x105a2b010, {{0.0, 0.0}, {393.0, 852.0}}
+                        Other, 0x105a2b370, {{24.0, 190.5}, {345.0, 496.0}}, label: 'iOS client demo
+Sign in to your curated storefront
+A lightweight demo for testing login, navigation, carts, favorites, and profile settings on iOS.'
+                        TextField, 0x105a2b6c0, {{52.0, 454.5}, {289.0, 56.0}}, label: 'Username', value: qa_filter
+                        SecureTextField, 0x105a2ba40, {{52.0, 526.5}, {289.0, 56.0}}, label: 'Password', value: ••••••, Keyboard Focused
+                        Button, 0x105a2bda0, {{52.0, 606.5}, {289.0, 52.0}}, label: 'Start shopping'
+    Window, 0x105a2c0f0, {{0.0, 0.0}, {393.0, 852.0}}
+      Other, 0x105a2cbf0, {{0.0, 0.0}, {393.0, 852.0}}
+        Other, 0x105a2cf40, {{0.0, 0.0}, {393.0, 852.0}}
+        Other, 0x105a2d2a0, {{0.0, 852.0}, {393.0, 233.0}}
+Path to element:
+ →Application, 0x105a27fd0, pid: 64063, label: 'Flutter Client Demo'
+Query chain:
+ →Find: Target Application 'com.example.flutterClientDemo'
+  Output: {
+    Application, 0x105a2d980, pid: 64063, label: 'Flutter Client Demo'
+  }

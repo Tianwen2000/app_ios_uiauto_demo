@@ -1,0 +1,3 @@
+{"run_id":"flutter_it_20260320_101413_0fb7feb6","test_name":"testSmoke_LoginBrowseProfileLogout","step_id":"S002","step_name":"Submit valid credentials","action":"input","target":"Username","detail":"输入值: demo_operator","status":"passed","ts_ms":1773972878096}
+{"run_id":"flutter_it_20260320_101413_0fb7feb6","test_name":"testSmoke_LoginBrowseProfileLogout","step_id":"S002","step_name":"Submit valid credentials","action":"input","target":"Password","detail":"已输入保密内容","status":"passed","ts_ms":1773972879175}
+{"run_id":"flutter_it_20260320_101413_0fb7feb6","test_name":"testSmoke_LoginBrowseProfileLogout","step_id":"S002","step_name":"Submit valid credentials","action":"tap","target":"Start shopping","detail":"Tap target","status":"passed","ts_ms":1773972882350}

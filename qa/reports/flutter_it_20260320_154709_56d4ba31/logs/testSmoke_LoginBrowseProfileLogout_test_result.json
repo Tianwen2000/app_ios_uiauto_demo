@@ -1,0 +1,11 @@
+{
+  "test_name": "testSmoke_LoginBrowseProfileLogout",
+  "run_id": "flutter_it_20260320_154709_56d4ba31",
+  "status": "passed",
+  "started_at_ms": 1773992865582,
+  "ended_at_ms": 1773992899071,
+  "duration_ms": 33489,
+  "failure_step_id": null,
+  "debug_description_relpath": null,
+  "error": null
+}
