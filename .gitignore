@@ -1,0 +1,4 @@
+
+# test reports
+qa/reports/
+*.xcresult/
